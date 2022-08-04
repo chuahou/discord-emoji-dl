@@ -18,8 +18,9 @@ default-extensions:
     - ImportQualifiedPost
 
 dependencies:
-    - base >= 4.14.3.0 && < 5
-    - discord-haskell ^>= 1.14.0
+    - base >= 4.15.1.0 && < 5
+    - discord-haskell ^>= 1.13.0
+    - text ^>= 1.2.5.0
 
 executable:
     main:        Main.hs

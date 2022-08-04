@@ -14,7 +14,7 @@
   outputs = inputs@{ self, nixpkgs, flake-utils, haskellNix, ... }:
   flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
   let
-    compiler-version = "8107";
+    compiler-version = "902";
     compiler-nix-name = "ghc${compiler-version}";
     index-state = "2022-08-04T00:00:00Z";
 

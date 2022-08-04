@@ -36,6 +36,7 @@
           depends = [
             (hsPkgs."base" or (errorHandler.buildDepError "base"))
             (hsPkgs."discord-haskell" or (errorHandler.buildDepError "discord-haskell"))
+            (hsPkgs."text" or (errorHandler.buildDepError "text"))
             ];
           buildable = true;
           modules = [ "Paths_discord_emoji_dl" ];
