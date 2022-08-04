@@ -1,0 +1,37 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.7.
+--
+-- see: https://github.com/sol/hpack
+
+name:           discord-emoji-dl
+version:        0.1.0.0
+synopsis:       downloads Discord emoji as a bot
+description:    Downloads all custom Discord emoji in a server as a bot.
+category:       Network
+homepage:       https://github.com/chuahou/discord-emoji-dl#readme
+bug-reports:    https://github.com/chuahou/discord-emoji-dl/issues
+maintainer:     Chua Hou <human+github@chuahou.dev>
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/chuahou/discord-emoji-dl
+
+executable discord-emoji-dl
+  main-is: Main.hs
+  other-modules:
+      Paths_discord_emoji_dl
+  hs-source-dirs:
+      exe
+  default-extensions:
+      LambdaCase
+      TupleSections
+      ImportQualifiedPost
+  ghc-options: -Wall -fwarn-incomplete-uni-patterns -fwarn-incomplete-record-updates -static -threaded
+  build-depends:
+      base >=4.14.3.0 && <5
+    , discord-haskell >=1.14.0 && <1.15
+  default-language: Haskell2010

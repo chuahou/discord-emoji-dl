@@ -1,0 +1,27 @@
+name:        discord-emoji-dl
+version:     0.1.0.0
+synopsis:    downloads Discord emoji as a bot
+description: Downloads all custom Discord emoji in a server as a bot.
+category:    Network
+github:      chuahou/discord-emoji-dl
+maintainer:  Chua Hou <human+github@chuahou.dev>
+
+ghc-options:
+    - -Wall
+    - -fwarn-incomplete-uni-patterns
+    - -fwarn-incomplete-record-updates
+    - -static
+
+default-extensions:
+    - LambdaCase
+    - TupleSections
+    - ImportQualifiedPost
+
+dependencies:
+    - base >= 4.14.3.0 && < 5
+    - discord-haskell ^>= 1.14.0
+
+executable:
+    main:        Main.hs
+    source-dirs: exe
+    ghc-options: -threaded
