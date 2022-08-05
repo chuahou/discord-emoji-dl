@@ -35,6 +35,7 @@
         "discord-emoji-dl" = {
           depends = [
             (hsPkgs."base" or (errorHandler.buildDepError "base"))
+            (hsPkgs."data-default" or (errorHandler.buildDepError "data-default"))
             (hsPkgs."discord-haskell" or (errorHandler.buildDepError "discord-haskell"))
             (hsPkgs."text" or (errorHandler.buildDepError "text"))
             ];

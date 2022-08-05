@@ -19,6 +19,7 @@ default-extensions:
 
 dependencies:
     - base >= 4.15.1.0 && < 5
+    - data-default ^>= 0.7.1.1
     - discord-haskell ^>= 1.13.0
     - text ^>= 1.2.5.0
 
