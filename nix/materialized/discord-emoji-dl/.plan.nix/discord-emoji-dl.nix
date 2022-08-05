@@ -41,6 +41,7 @@
             (hsPkgs."discord-haskell" or (errorHandler.buildDepError "discord-haskell"))
             (hsPkgs."filepath" or (errorHandler.buildDepError "filepath"))
             (hsPkgs."http-conduit" or (errorHandler.buildDepError "http-conduit"))
+            (hsPkgs."mtl" or (errorHandler.buildDepError "mtl"))
             (hsPkgs."text" or (errorHandler.buildDepError "text"))
             ];
           buildable = true;

@@ -3,6 +3,8 @@
 
 module Main (main) where
 
+import Control.Exception      (SomeException, try)
+import Control.Monad.Except   (ExceptT (..), lift, runExceptT)
 import Control.Monad.IO.Class (liftIO)
 import Data.ByteString.Lazy   qualified as LBS
 import Data.Default           qualified as Def
@@ -24,7 +26,6 @@ import System.Environment     (getArgs, getProgName)
 import System.Exit            (exitFailure)
 import System.FilePath        ((<.>), (</>))
 import System.IO              (hPrint, hPutStrLn, stderr)
-import System.IO.Error        (tryIOError)
 import Text.Read              (readMaybe)
 
 data ProgOpts = ProgOpts { optToken  :: Maybe (Either Text FilePath)
@@ -136,13 +137,16 @@ discordMain serverId outDir = do
                    in download outPath $ concat
                         [ "https://cdn.discordapp.com/emojis/", show eid, ext ]
         download :: FilePath -> String -> IO ()
-        download out url = either printErr pure =<< tryIOError (do
-            req <- parseRequest url
-            resp <- httpLBS req
-            LBS.writeFile out $ getResponseBody resp
-            hPutStrLn stderr $ "Downloaded " ++ out)
+        download out url = either printErr pure =<< runExceptT (do
+            req <- try' $ parseRequest url
+            resp <- try' $ httpLBS req
+            try' $ LBS.writeFile out (getResponseBody resp)
+            lift $ hPutStrLn stderr ("Downloaded " ++ out))
                 where
-                    printErr :: IOError -> IO ()
+                    try' :: IO a -> ExceptT SomeException IO a
+                    try' = ExceptT . try
+
+                    printErr :: SomeException -> IO ()
                     printErr err = do
                         hPrint stderr err
                         hPutStrLn stderr $ "Was unable to download from " ++ url

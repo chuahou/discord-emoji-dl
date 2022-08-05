@@ -39,5 +39,6 @@ executable discord-emoji-dl
     , discord-haskell >=1.13.0 && <1.14
     , filepath >=1.4.2.1 && <1.5
     , http-conduit >=2.3.8 && <2.4
+    , mtl >=2.2.2 && <2.3
     , text >=1.2.5.0 && <1.3
   default-language: Haskell2010

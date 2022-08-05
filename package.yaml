@@ -25,6 +25,7 @@ dependencies:
     - discord-haskell ^>= 1.13.0
     - filepath ^>= 1.4.2.1
     - http-conduit ^>= 2.3.8
+    - mtl ^>= 2.2.2
     - text ^>= 1.2.5.0
 
 executable:
