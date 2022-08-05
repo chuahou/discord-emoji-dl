@@ -33,7 +33,11 @@ executable discord-emoji-dl
   ghc-options: -Wall -fwarn-incomplete-uni-patterns -fwarn-incomplete-record-updates -static -threaded
   build-depends:
       base >=4.15.1.0 && <5
+    , bytestring >=0.10.12.1 && <0.11
     , data-default >=0.7.1.1 && <0.8
+    , directory >=1.3.7.1 && <1.4
     , discord-haskell >=1.13.0 && <1.14
+    , filepath >=1.4.2.1 && <1.5
+    , http-conduit >=2.3.8 && <2.4
     , text >=1.2.5.0 && <1.3
   default-language: Haskell2010
